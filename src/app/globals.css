@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0A0A20;
+  --surface: #19192f;
+  --accent-50: #eeffe4;
+  --accent-100: #d7ffc4;
+  --accent-200: #b2ff90;
+  --accent-300: #7fff50;
+  --accent-400: #3cff00;
+  --accent-500: #30e600;
+  --accent-600: #22b800;
+  --accent-700: #198b00;
+  --accent-800: #196d07;
+  --accent-900: #185c0b;
+  --accent-950: #063400;
+  --dyn-cyan: #00ffff;
+  --dyn-gradient: linear-gradient(45deg, var(--accent-400) 0%, var(--dyn-cyan) 100%);
+  --soft-bg: rgba(255,255,255,0.04);
+  --soft-bg-hover: rgba(255,255,255,0.08);
+  --soft-bg-active: rgba(255,255,255,0.12);
+  --soft-bg-success: rgba(48,230,0,0.08);
+  --soft-bg-success-hover: rgba(48,230,0,0.12);
+  color-scheme: dark;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/IBMPlexSans-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/IBMPlexSans-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/IBMPlexSans-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/IBMPlexSans-BoldItalic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/IBMPlexSans-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/IBMPlexSans-LightItalic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/IBMPlexSans-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/IBMPlexSans-MediumItalic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/IBMPlexSans-SemiBoldItalic.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/IBMPlexSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  background: var(--background);
+  color: #fff;
+  font-family: "IBM Plex Sans";
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.text-fill-transparent{
+  -webkit-text-fill-color: transparent;
+}
+
+.dyn-gradient-static{
+  background: linear-gradient(90deg, var(--c1, var(--accent-400)), var(--c2, var(--dyn-cyan)) 51%, var(--c1, var(--accent-400))) var(--x, 0)/ 200%;
+}
+
+.dyn-gradient{
+  background: linear-gradient(90deg, var(--c1, var(--accent-400)), var(--c2, var(--dyn-cyan)) 51%, var(--c1, var(--accent-400))) var(--x, 0)/ 200%;
+  transition: all 0.3s ease-in-out;
+}
+
+.dyn-gradient:hover { --x: 100%; }
+
+.onScroll {
+  background-color: rgba(10, 10, 32, 0.8);
+  backdrop-filter: blur(32px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.surface{
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(40px);
+}
+
+.soft-bg{
+  background-color: var(--soft-bg);
+  &:hover {
+    background-color: var(--soft-bg-hover);
+  }
+}
+
+.soft-bg-hover{
+  background-color: var(--soft-bg-hover);
+}
+
+.soft-bg-active{
+  background-color: var(--soft-bg-active);
+}
+
+.soft-bg-success{
+  background-color: var(--soft-bg-success);
+  &:hover {
+    background-color: var(--soft-bg-success-hover);
+  }
+}
+
+
+.quote-content::-webkit-scrollbar {
+	width: 8px;
+  background: rgba(255,255,255,0.06);
+	border-radius: 8px;
+}
+
+.quote-content::-webkit-scrollbar-thumb {
+	border-radius: 8px;
+  background: rgba(255,255,255,0.12);
+  transition: all 0.3s ease-in-out;
+}
+
+.quote-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.16);
+}
+
+.quote-content::-webkit-scrollbar-thumb:active {
+  background: rgba(255,255,255,0.20);
+}
+
+.background-wrapper {
+  mask-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 75%, rgba(0,0,0,0) 100%);
+}

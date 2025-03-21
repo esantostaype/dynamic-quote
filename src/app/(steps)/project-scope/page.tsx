@@ -1,7 +1,7 @@
-import { CompanyProfileForm } from "../company-profile/CompanyProfileForm";
+import { ProjectScopeForm } from './ProjectScopeForm'
 
 export default function Step2Page() {
   return (
-    <CompanyProfileForm/>
+    <ProjectScopeForm/>
   )
 }

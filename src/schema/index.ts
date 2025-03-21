@@ -1,4 +1,4 @@
-import { CompanyProfile } from '@/interfaces';
+import { CompanyProfile, ProjectScope } from '@/interfaces';
 import * as Yup from 'yup'
 
 export const CompanyProfileSchema: Record<
@@ -26,7 +26,21 @@ export const CompanyProfileSchema: Record<
   additionalNotes: Yup.object().shape({
     additionalNotes: Yup.string(),
   }) as Yup.ObjectSchema<Partial<CompanyProfile>>,
-};
+}
+
+export const ProjectScopeSchema: Record<
+  string,
+  Yup.ObjectSchema<Partial<ProjectScope>>
+> = {
+  softwareType: Yup.object().shape({
+    softwareType: Yup.string().required("Software Type is required"),
+  }) as Yup.ObjectSchema<Partial<ProjectScope>>,
+
+  mainPurpose: Yup.object().shape({
+    mainPurpose: Yup.string().required("Software Type is required"),
+    specificFocus: Yup.string(),
+  }) as Yup.ObjectSchema<Partial<ProjectScope>>
+}
 
 export const FormSchemaStep2 = Yup.object().shape({
 	q4: Yup.string().required('This field is required'),

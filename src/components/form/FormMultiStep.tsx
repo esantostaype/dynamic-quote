@@ -85,7 +85,7 @@ export const FormMultiStep = <T extends FormikValues>({
     } else {
       pageContent?.classList.remove("enter-page-transition")
       pageContent?.classList.add("exit-page-transition")
-      await sleep(300)
+      await sleep(290)
       router.push(nextStep)
       pageContent?.classList.remove("exit-page-transition")
       pageContent?.classList.add("enter-page-transition")

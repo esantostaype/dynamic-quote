@@ -81,6 +81,19 @@ export const companyProfileTabs: Tab[] = [
   },
 ]
 
+export const projectScopeTabs: Tab[] = [
+  {
+    id: "softwareType",
+    label: "Software Type",
+    icon: <Info size={20} weight="light" />,
+  },
+  {
+    id: "mainPurpose",
+    label: "Main Purpose",
+    icon: <Target size={20} weight="light" />,
+  }
+]
+
 export const states:string[] = [
   "Alabama",
   "Alaska",

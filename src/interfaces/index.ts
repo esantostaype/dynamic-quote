@@ -37,3 +37,9 @@ export interface CompanyProfile {
   knowledgeLevel: string
   additionalNotes: string
 }
+
+export interface ProjectScope {
+  softwareType: string
+  mainPurpose: string
+  specificFocus: string
+}

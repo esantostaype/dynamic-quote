@@ -28,6 +28,7 @@ export default {
         },
         background: "var(--background)",
         surface: "var(--surface)",
+        border: "rgba(255,255,255,0.16)"
       },
       fontFamily: {
         ibm: ["IBM Plex Sans", ...defaultTheme.fontFamily.sans],

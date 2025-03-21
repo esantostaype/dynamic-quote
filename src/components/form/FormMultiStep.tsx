@@ -15,6 +15,7 @@ import { toast } from 'react-toastify'
 import { QuoteFormTemplate } from '@/templates'
 import { MainButton, FormButtonsWrapper } from '@/components'
 import { Tab, TabContent } from '@/interfaces'
+import { motion, AnimatePresence } from 'framer-motion'
 
 interface FormMultiStepProps<T extends FormikValues> {
   nextStep: string
@@ -62,6 +63,10 @@ export const FormMultiStep = <T extends FormikValues>({
     }
   }, [formKey, tabs, validationSchema])
 
+  function sleep(ms: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, ms))
+  }
+
   const handleSubmit = async (
     values: T,
     { setSubmitting }: FormikHelpers<T>
@@ -69,6 +74,8 @@ export const FormMultiStep = <T extends FormikValues>({
     setCompletedTabs(
       (prev) => new Set([...Array.from(prev), tabs[tabs.length - 1].id])
     )
+    const pageContent = document.querySelector(".page-content")
+    
     Cookies.set(formKey, JSON.stringify({ ...values, formSubmitted: true }), { expires: 7 })
     toast.success("Data Saved!")
     setSubmitting(false)
@@ -76,7 +83,12 @@ export const FormMultiStep = <T extends FormikValues>({
     if (onSubmit) {
       onSubmit(values)
     } else {
+      pageContent?.classList.remove("enter-page-transition")
+      pageContent?.classList.add("exit-page-transition")
+      await sleep(300)
       router.push(nextStep)
+      pageContent?.classList.remove("exit-page-transition")
+      pageContent?.classList.add("enter-page-transition")
     }
   }
 
@@ -150,19 +162,28 @@ export const FormMultiStep = <T extends FormikValues>({
         >
           <Form className="flex flex-col flex-1">
             <div className="flex-1">
-              {tabContent[activeTab] &&
-                tabContent[activeTab]({
-                  values: values as T,
-                  errors: errors as Partial<Record<keyof T, string>>,
-                  touched: touched as Partial<Record<keyof T, boolean>>,
-                  handleChange,
-                  activeTab,
-                  setFieldValue,
-                })}
+              <AnimatePresence mode='wait' initial={false}>
+                <motion.div
+                  key={ activeTab }
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.2, ease: [0.39, 0.24, 0.3, 1] }}
+                >
+                  { tabContent[activeTab] && tabContent[activeTab]({
+                    values: values as T,
+                    errors: errors as Partial<Record<keyof T, string>>,
+                    touched: touched as Partial<Record<keyof T, boolean>>,
+                    handleChange,
+                    activeTab,
+                    setFieldValue})
+                  }
+                </motion.div>
+              </AnimatePresence>
             </div>
             <FormButtonsWrapper>
               <div></div>
-              {activeTab === tabs[tabs.length - 1].id ? (
+              { activeTab === tabs[tabs.length - 1].id ? (
                 <MainButton type="submit" label="Submit" />
               ) : (
                 <MainButton

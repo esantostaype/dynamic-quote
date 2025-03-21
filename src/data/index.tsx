@@ -232,3 +232,49 @@ export const knowledgeLevels:CheckboxRadioOption[] = [
     helperText: "Not sure?",
   },
 ]
+
+export const softwareType:CheckboxRadioOption[] = [
+  {
+    label: "Mobile Application",
+    description:
+      "Optimized for on-the-go access on iOS/Android devices"
+  },
+  {
+    label: "Web System",
+    description:
+      "Accessible through web browsers, perfect for cross-platform use"
+  },
+  {
+    label: "Desktop Software",
+    description:
+      "High-performance applications for Windows, macOS, or Linux"
+  },
+  {
+    label: "Integrated System",
+    description:
+      "Comprehensive solution combining multiple platforms"
+  }
+]
+
+export const mainPurpose:CheckboxRadioOption[] = [
+  {
+    label: "Consumer App",
+    description:
+      "E-commerce, social media, entertainment apps"
+  },
+  {
+    label: "Business App",
+    description:
+      "Enterprise management, analytics tools"
+  },
+  {
+    label: "Service App",
+    description:
+      "Customer service, bookings, deliveries"
+  },
+  {
+    label: "Internal Tool",
+    description:
+      "Tools for internal workflows/processes"
+  }
+]

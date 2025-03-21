@@ -1,21 +1,15 @@
 'use client'
 import { FormMultiStep } from '@/components'
 import { projectScopeTabs } from '@/data'
-import { CompanyProfileSchema } from '@/schema'
+import { ProjectScopeSchema } from '@/schema'
 import { ProjectScope, TabContent } from '@/interfaces'
 import { TabContentSoftwareType, TabContentMainPurpose } from './tab-contents'
 
 export const ProjectScopeForm = () => {
   const defaultInitialValues: ProjectScope = {
-    industry: "",
-    companySize: "",
-    fullName: "",
-    email: "",
-    phone: "",
-    projectGoals: [],
-    otherGoal: "",
-    knowledgeLevel: "",
-    additionalNotes: "",
+    softwareType: "",
+    mainPurpose: "",
+    specificFocus: "",
   }
 
   const tabContent = {
@@ -42,7 +36,7 @@ export const ProjectScopeForm = () => {
       nextStep="/project-scope"
       formKey="ProjectScope"
       tabs={projectScopeTabs}
-      validationSchema={CompanyProfileSchema}
+      validationSchema={ProjectScopeSchema}
       defaultValues={defaultInitialValues}
       tabContent={tabContent}
     />

@@ -1,6 +1,6 @@
 import { FormOptionList } from '@/components'
-import { knowledgeLevels } from '@/data'
-import { CompanyProfile, TabContent } from '@/interfaces'
+import { mainPurpose } from '@/data'
+import { ProjectScope, TabContent } from '@/interfaces'
 import { TabContentTemplate } from '@/templates'
 import { FormControl } from '@mui/joy'
 
@@ -9,19 +9,19 @@ export const TabContentSoftwareType = ({
   errors,
   touched,
   setFieldValue,
-}: TabContent<CompanyProfile>) => {
+}: TabContent<ProjectScope>) => {
   return (
     <TabContentTemplate
       title="Define Your Project Scope"
       description="Select the type of software you need and describe its main purpose. This helps us shape the features that best fit your goals."
     >
-      <FormControl className="flex-1" error={Boolean(errors.knowledgeLevel && touched.knowledgeLevel)}>
+      <FormControl className="flex-1" error={Boolean(errors.mainPurpose && touched.mainPurpose)}>
         <FormOptionList
-          options={knowledgeLevels}
-          selectedOptions={values.knowledgeLevel}
-          onChange={(newValue) => setFieldValue('knowledgeLevel', newValue)}
-          error={Boolean(errors.knowledgeLevel && touched.knowledgeLevel)}
-          helperText={touched.knowledgeLevel && errors.knowledgeLevel ? errors.knowledgeLevel : ''}
+          options={mainPurpose}
+          selectedOptions={values.mainPurpose}
+          onChange={(newValue) => setFieldValue('mainPurpose', newValue)}
+          error={Boolean(errors.mainPurpose && touched.mainPurpose)}
+          helperText={touched.mainPurpose && errors.mainPurpose ? errors.mainPurpose : ''}
           type="radio"
         />
       </FormControl>

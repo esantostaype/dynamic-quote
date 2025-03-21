@@ -28,7 +28,7 @@ export const StepperItem = ({ step, isActive, isSuccess, isLastStep }: Props) =>
 
     pageContent?.classList.remove("enter-page-transition")
       pageContent?.classList.add("exit-page-transition")
-      await sleep(200)
+      await sleep(300)
       router.push( step.path)
       pageContent?.classList.remove("exit-page-transition")
       pageContent?.classList.add("enter-page-transition")

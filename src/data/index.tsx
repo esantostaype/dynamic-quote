@@ -1,9 +1,13 @@
 import type { CheckboxRadioOption, Step, Tab } from "@/interfaces"
 import {
   Briefcase,
+  Browser,
   ChartBar,
   ClipboardText,
   CreditCard,
+  Desktop,
+  DeviceMobileCamera,
+  Gauge,
   Gear,
   Info,
   ListChecks,
@@ -236,45 +240,41 @@ export const knowledgeLevels:CheckboxRadioOption[] = [
 export const softwareType:CheckboxRadioOption[] = [
   {
     label: "Mobile Application",
-    description:
-      "Optimized for on-the-go access on iOS/Android devices"
+    description: "Optimized for on-the-go access on iOS/Android devices",
+    icon: <DeviceMobileCamera size={48} weight="thin" />
   },
   {
     label: "Web System",
-    description:
-      "Accessible through web browsers, perfect for cross-platform use"
+    description: "Accessible through web browsers, perfect for cross-platform use",
+    icon: <Browser size={48} weight="thin" />
   },
   {
     label: "Desktop Software",
-    description:
-      "High-performance applications for Windows, macOS, or Linux"
+    description: "High-performance applications for Windows, macOS, or Linux",
+    icon: <Desktop size={48} weight="thin" />
   },
   {
     label: "Integrated System",
-    description:
-      "Comprehensive solution combining multiple platforms"
+    description: "Comprehensive solution combining multiple platforms",
+    icon: <Gauge size={48} weight="thin" />
   }
 ]
 
 export const mainPurpose:CheckboxRadioOption[] = [
   {
     label: "Consumer App",
-    description:
-      "E-commerce, social media, entertainment apps"
+    description: "E-commerce, social media, entertainment apps"
   },
   {
     label: "Business App",
-    description:
-      "Enterprise management, analytics tools"
+    description: "Enterprise management, analytics tools"
   },
   {
     label: "Service App",
-    description:
-      "Customer service, bookings, deliveries"
+    description: "Customer service, bookings, deliveries"
   },
   {
     label: "Internal Tool",
-    description:
-      "Tools for internal workflows/processes"
+    description: "Tools for internal workflows/processes"
   }
 ]

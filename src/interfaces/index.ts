@@ -15,6 +15,7 @@ export interface CheckboxRadioOption {
   label: string
   description?: string
   helperText?: string
+  icon?: React.ReactNode
 }
 
 export interface TabContent<T> {
